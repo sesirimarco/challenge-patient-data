@@ -1,17 +1,16 @@
-
 html {
   font-size: 62.5%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 }
 
 body {
-  font-size: 1.8rem;
-  line-height: 1.618;
   max-width: 38em;
   margin: auto;
-  color: #4a4a4a;
-  background-color: #f9f9f9;
   padding: 13px;
+  color: #4a4a4a;
+  font-size: 1.8rem;
+  line-height: 1.618;
+  background-color: #f9f9f9;
 }
 
 @media (max-width: 684px) {
@@ -19,26 +18,28 @@ body {
     font-size: 1.53rem;
   }
 }
+
 @media (max-width: 382px) {
   body {
     font-size: 1.35rem;
   }
 }
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  line-height: 1.1;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-  font-weight: 700;
   margin-top: 3rem;
   margin-bottom: 1.5rem;
-  overflow-wrap: break-word;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  line-height: 1.1;
   word-wrap: break-word;
   -ms-word-break: break-all;
   word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 h1 {
@@ -66,7 +67,7 @@ h6 {
 }
 
 p {
-  margin-top: 0px;
+  margin-top: 0;
   margin-bottom: 2.5rem;
 }
 
@@ -81,21 +82,23 @@ hr {
 }
 
 a {
-  text-decoration: none;
   color: #1d7484;
+  text-decoration: none;
 }
+
 a:visited {
   color: #144f5a;
 }
+
 a:hover {
   color: #982c61;
   border-bottom: 2px solid #4a4a4a;
 }
 
 ul {
-  padding-left: 1.4em;
-  margin-top: 0px;
+  margin-top: 0;
   margin-bottom: 2.5rem;
+  padding-left: 1.4em;
 }
 
 li {
@@ -103,15 +106,15 @@ li {
 }
 
 blockquote {
-  margin-left: 0px;
-  margin-right: 0px;
-  padding-left: 1em;
-  padding-top: 0.8em;
-  padding-bottom: 0.8em;
-  padding-right: 0.8em;
-  border-left: 5px solid #1d7484;
+  margin-right: 0;
   margin-bottom: 2.5rem;
+  margin-left: 0;
+  padding-top: 0.8em;
+  padding-right: 0.8em;
+  padding-bottom: 0.8em;
+  padding-left: 1em;
   background-color: #f1f1f1;
+  border-left: 5px solid #1d7484;
 }
 
 blockquote p {
@@ -120,43 +123,43 @@ blockquote p {
 
 img,
 video {
-  height: auto;
   max-width: 100%;
-  margin-top: 0px;
+  height: auto;
+  margin-top: 0;
   margin-bottom: 2.5rem;
 }
 
 /* Pre and Code */
 pre {
-  background-color: #f1f1f1;
   display: block;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
   padding: 1em;
   overflow-x: auto;
-  margin-top: 0px;
-  margin-bottom: 2.5rem;
   font-size: 0.9em;
+  background-color: #f1f1f1;
 }
 
 code,
 kbd,
 samp {
-  font-size: 0.9em;
   padding: 0 0.5em;
-  background-color: #f1f1f1;
+  font-size: 0.9em;
   white-space: pre-wrap;
+  background-color: #f1f1f1;
 }
 
 pre > code {
   padding: 0;
-  background-color: transparent;
-  white-space: pre;
   font-size: 1em;
+  white-space: pre;
+  background-color: transparent;
 }
 
 /* Tables */
 table {
-  text-align: justify;
   width: 100%;
+  text-align: justify;
   border-collapse: collapse;
 }
 
@@ -171,6 +174,7 @@ input,
 textarea {
   border: 1px solid #4a4a4a;
 }
+
 input:focus,
 textarea:focus {
   border: 1px solid #1d7484;
@@ -186,17 +190,18 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"] {
   display: inline-block;
+  box-sizing: border-box;
   padding: 5px 10px;
+  color: #f9f9f9;
+  white-space: nowrap;
   text-align: center;
   text-decoration: none;
-  white-space: nowrap;
   background-color: #1d7484;
-  color: #f9f9f9;
-  border-radius: 1px;
   border: 1px solid #1d7484;
+  border-radius: 1px;
   cursor: pointer;
-  box-sizing: border-box;
 }
+
 .button[disabled],
 button[disabled],
 input[type="submit"][disabled],
@@ -205,6 +210,7 @@ input[type="button"][disabled] {
   cursor: default;
   opacity: 0.5;
 }
+
 .button:focus:enabled,
 .button:hover:enabled,
 button:focus:enabled,
@@ -215,24 +221,25 @@ input[type="reset"]:focus:enabled,
 input[type="reset"]:hover:enabled,
 input[type="button"]:focus:enabled,
 input[type="button"]:hover:enabled {
+  color: #f9f9f9;
   background-color: #982c61;
   border-color: #982c61;
-  color: #f9f9f9;
   outline: 0;
 }
 
 textarea,
 select,
 input {
-  color: #4a4a4a;
-  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  box-sizing: border-box;
   margin-bottom: 10px;
+  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  color: #4a4a4a;
   background-color: #f1f1f1;
   border: 1px solid #f1f1f1;
   border-radius: 4px;
   box-shadow: none;
-  box-sizing: border-box;
 }
+
 textarea:focus,
 select:focus,
 input:focus {
