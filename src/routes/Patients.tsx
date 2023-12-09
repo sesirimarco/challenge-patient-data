@@ -1,3 +1,5 @@
+import Card from "../components/Card";
+import { Patient } from "../interfaces/patients";
 import { useGetPatientsQuery } from "../store/services/patients";
 
 const Patients = () => {
@@ -8,6 +10,11 @@ const Patients = () => {
 	return (
 		<>
 			<h1>Patients</h1>
+			{data?.length
+				? data.map((patient: Patient) => (
+						<Card onSave={(data: Patient) => console.log(data)} patient={patient} />
+				  ))
+				: null}
 		</>
 	);
 };
