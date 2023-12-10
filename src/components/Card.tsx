@@ -14,17 +14,17 @@ interface CardProps {
 const Card: FC<CardProps> = ({ patient, onSave }) => {
 	return (
 		<div key={patient.id}>
-			<div className="Card-card">
+			<div className="Card">
 				<img
 					src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/775.jpg"
 					alt="Avatar"
-					className="Card-avatar"
+					className="Card-image"
 				/>
-				<div className="Card-card-content">
-					<h2 className="Card-card-title">{patient.name}</h2>
-					<p className="Card-card-details">{formatDateTime(patient.createdAt)}</p>
-					<p className="Card-card-description">{patient.description}</p>
-					<a href={patient.website} className="Card-card-details">
+				<div className="Card-content">
+					<h2 className="Card-title">{patient.name}</h2>
+					<p className="Card-details">{formatDateTime(patient.createdAt)}</p>
+					<p className="Card-description Card-ellipsis-text">{patient.description}</p>
+					<a href={patient.website} className="Card-details">
 						{patient.website}
 					</a>
 				</div>

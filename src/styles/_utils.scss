@@ -1,0 +1,31 @@
+@import "./variables";
+// Media Queries
+@mixin mobile {
+	@media (max-width: #{$mobile}) {
+		@content;
+	}
+}
+
+@mixin tablet-portrait {
+	@media (max-width: #{$tablet-potrait}) {
+		@content;
+	}
+}
+
+@mixin tablet-landscape {
+	@media (max-width: #{$tablet-landscape}) {
+		@content;
+	}
+}
+
+@mixin desktop-small {
+	@media (max-width: #{$desktop} ) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (max-width: #{$desktop} ) {
+		@content;
+	}
+}
