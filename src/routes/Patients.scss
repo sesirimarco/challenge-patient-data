@@ -1,17 +1,17 @@
-@import "../styles/utils.scss";
+@import "../styles/utils";
 
 .Patients {
-	&-container {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 1rem;
+  &-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
 
-		@include desktop-small {
-			grid-template-columns: repeat(2, 1fr);
-		}
+    @include desktop-small {
+      grid-template-columns: repeat(2, 1fr);
+    }
 
-		@include mobile {
-			grid-template-columns: repeat(1, 1fr);
-		}
-	}
+    @include mobile {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
 }
