@@ -108,13 +108,16 @@ const PatientForm: React.FC<PatientFormProps> = ({ patient, onSave, onCancel }) 
 
 				<div className="PatientForm-container-buttons">
 					<button
+						id="save"
 						onClick={handleSave}
 						disabled={!enabledSubmit()}
 						className={`${!enabledSubmit() ? "button-disabled" : ""}`}
 					>
 						Save
 					</button>
-					<button onClick={onCancel}>Cancel</button>
+					<button id="cancel" onClick={onCancel}>
+						Cancel
+					</button>
 				</div>
 			</div>
 		</div>
