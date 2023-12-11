@@ -2,18 +2,18 @@ import "./Card.scss";
 
 import React, { FC } from "react";
 
-import { Patient } from "../interfaces/patients";
-import { formatDateTime } from "../utils/formatters";
+import { Patient } from "../../interfaces/patients";
+import { formatDateTime } from "../../utils/formatters";
 
 interface CardProps {
-	patient: Patient;
+	patient?: Patient;
 
-	onSave: (data: Patient) => void;
+	onSelect: (data: Patient) => void;
 }
 
-const Card: FC<CardProps> = ({ patient, onSave }) => {
-	return (
-		<div key={patient.id}>
+const Card: FC<CardProps> = ({ patient, onSelect }) => {
+	return patient?.id.length ? (
+		<div key={patient.id} onClick={() => onSelect(patient)}>
 			<div className="Card">
 				<img
 					src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/775.jpg"
@@ -30,7 +30,7 @@ const Card: FC<CardProps> = ({ patient, onSave }) => {
 				</div>
 			</div>
 		</div>
-	);
+	) : null;
 };
 
 export default Card;
