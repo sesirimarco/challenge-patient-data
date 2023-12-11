@@ -10,19 +10,19 @@ interface CardProps {
 	ellipsis?: boolean;
 	viewAction?: boolean;
 	editAction?: boolean;
-	onSelect: (data: Patient) => void;
+	onSelect?: (data: Patient) => void;
 	onEdit?: (data: Patient) => void;
 }
 
 const Card: FC<CardProps> = ({ patient, ellipsis, viewAction, editAction, onSelect, onEdit }) => {
 	return patient?.id.length ? (
-		<div onClick={() => onSelect(patient)}>
+		<div onClick={() => (onSelect ? onSelect(patient) : null)}>
 			<div className="Card">
 				<div className="Card-header">
 					{viewAction || editAction ? (
 						<div className="Card-header-actions">
 							{viewAction ? (
-								<div onClick={() => onSelect(patient)}>
+								<div onClick={() => (onSelect ? onSelect(patient) : null)}>
 									<svg
 										fill="none"
 										color="white"
