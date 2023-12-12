@@ -1,7 +1,9 @@
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import Patients from "./routes/Patients";
+import Header from "./components/Header/Header";
+import Notes from "./routes/Notes/Notes";
+import Patients from "./routes/Patients/Patients";
 import { store } from "./store/store";
 
 interface AppLayoutProps {
@@ -10,9 +12,7 @@ interface AppLayoutProps {
 const AppLayout: React.FC<AppLayoutProps> = ({ children }) => (
 	<>
 		<div className="app-layout">
-			<header>
-				<h1>Challenge Patient Data</h1>
-			</header>
+			<Header />
 			<div className="app-body">{children}</div>
 			<footer>
 				<p>© 2023 Challenge Patient Data.</p>
@@ -24,13 +24,14 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => (
 const App = () => (
 	<>
 		<Provider store={store}>
-			<AppLayout>
-				<Router>
+			<Router>
+				<AppLayout>
 					<Routes>
 						<Route path="/" element={<Patients />} />
+						<Route path="/notes" element={<Notes />} />
 					</Routes>
-				</Router>
-			</AppLayout>
+				</AppLayout>
+			</Router>
 		</Provider>
 	</>
 );

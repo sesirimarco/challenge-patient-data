@@ -1,0 +1,24 @@
+.Notes {
+  min-height: 100vh;
+
+  h4 {
+    margin-top: 1.2rem;
+  }
+
+  p {
+    color: #555;
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  &-image-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  img {
+    margin-top: 10px;
+    border-radius: 1rem;
+  }
+}

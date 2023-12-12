@@ -3,14 +3,14 @@ import "./Patients.scss";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { useEffect, useState } from "react";
 
-import AddButton from "../components/AddButton/AddButton";
-import Card from "../components/Card/Card";
-import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
-import Loading from "../components/Loading/Loading";
-import Modal from "../components/Modal/Modal";
-import PatientForm from "../components/PatientForm/PatientForm";
-import { Patient } from "../interfaces/patients";
-import { useGetPatientsQuery } from "../store/services/patients";
+import AddButton from "../../components/AddButton/AddButton";
+import Card from "../../components/Card/Card";
+import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
+import Loading from "../../components/Loading/Loading";
+import Modal from "../../components/Modal/Modal";
+import PatientForm from "../../components/PatientForm/PatientForm";
+import { Patient } from "../../interfaces/patients";
+import { useGetPatientsQuery } from "../../store/services/patients";
 
 const Patients = () => {
 	const { data, error, isLoading } = useGetPatientsQuery("");
