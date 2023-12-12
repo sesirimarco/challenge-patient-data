@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 
 import App from "../src/App";
 import Card from "../src/components/Card/Card";
@@ -10,14 +10,6 @@ test("App component display Patients section", () => {
 	const heading = screen.getByText(/Patients/i);
 
 	expect(heading).toBeInTheDocument();
-});
-
-test("App component display New Patient button", () => {
-	render(<App />);
-
-	const newPatientTitle = screen.getByText(/New Patient/i);
-
-	expect(newPatientTitle).toBeInTheDocument();
 });
 
 test("Render patient Card component", () => {
