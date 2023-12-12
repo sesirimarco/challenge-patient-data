@@ -1,6 +1,6 @@
 import "./Card.scss";
 
-import React, { FC } from "react";
+import { FC } from "react";
 
 import { Patient } from "../../interfaces/patients";
 import { formatDateTime } from "../../utils/formatters";
@@ -15,6 +15,10 @@ interface CardProps {
 }
 
 const Card: FC<CardProps> = ({ patient, ellipsis, viewAction, editAction, onSelect, onEdit }) => {
+	/**
+	 * TODO: Make component icons
+	 */
+
 	return patient?.id.length ? (
 		<div onClick={() => (onSelect ? onSelect(patient) : null)}>
 			<div className="Card">
@@ -22,7 +26,10 @@ const Card: FC<CardProps> = ({ patient, ellipsis, viewAction, editAction, onSele
 					{viewAction || editAction ? (
 						<div className="Card-header-actions">
 							{viewAction ? (
-								<div onClick={() => (onSelect ? onSelect(patient) : null)}>
+								<div
+									onClick={() => (onSelect ? onSelect(patient) : null)}
+									className="Card-view-icon"
+								>
 									<svg
 										fill="none"
 										color="white"
@@ -75,6 +82,7 @@ const Card: FC<CardProps> = ({ patient, ellipsis, viewAction, editAction, onSele
 						className="Card-details Card-ellipsis-text"
 						target="_blank"
 						rel="noreferrer"
+						onClick={(e) => e.stopPropagation()}
 					>
 						{patient.website}
 					</a>

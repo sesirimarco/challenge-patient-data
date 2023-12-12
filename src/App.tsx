@@ -11,11 +11,11 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => (
 	<>
 		<div className="app-layout">
 			<header>
-				<h1>My App Header</h1>
+				<h1>Challenge Patient Data</h1>
 			</header>
 			<div className="app-body">{children}</div>
 			<footer>
-				<p>© 2023 My App</p>{" "}
+				<p>© 2023 Challenge Patient Data.</p>
 			</footer>
 		</div>
 	</>

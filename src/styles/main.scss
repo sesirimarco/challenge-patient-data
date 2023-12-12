@@ -4,6 +4,10 @@ html {
   font-family: "Helvetica Neue", sans-serif;
 }
 
+header {
+  font-size: 1.5rem;
+}
+
 body {
   max-width: 70%;
   margin: auto;
@@ -11,4 +15,10 @@ body {
   color: #4a4a4a;
   font-size: 2rem;
   background-color: #f9f9f9;
+}
+
+footer {
+  padding-top: 1.5rem;
+  font-size: 1rem;
+  text-align: center;
 }
