@@ -79,6 +79,7 @@ const PatientForm: React.FC<PatientFormProps> = ({ patient, onSave, onCancel }) 
 				/>
 				<label htmlFor="name">Name:</label>
 				<input
+					maxLength={25}
 					className={`${isEmpty(formData.name) ? "error" : ""}`}
 					type="text"
 					id="name"
@@ -89,6 +90,7 @@ const PatientForm: React.FC<PatientFormProps> = ({ patient, onSave, onCancel }) 
 
 				<label htmlFor="description">Description:</label>
 				<textarea
+					maxLength={100}
 					className={`${isEmpty(formData.description) ? "error" : ""}`}
 					id="description"
 					name="description"

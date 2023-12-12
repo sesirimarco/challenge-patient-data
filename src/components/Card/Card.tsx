@@ -65,12 +65,17 @@ const Card: FC<CardProps> = ({ patient, ellipsis, viewAction, editAction, onSele
 					<img src={patient.avatar} alt="Avatar" className="Card-header-image" />
 				</div>
 				<div className="Card-content">
-					<h2 className="Card-title">{patient.name}</h2>
+					<h2 className="Card-title Card-ellipsis-text">{patient.name}</h2>
 					<p className="Card-details">{formatDateTime(patient.createdAt)}</p>
 					<p className={`Card-description ${ellipsis ? "Card-ellipsis-text" : ""}`}>
 						{patient.description}
 					</p>
-					<a href={patient.website} className="Card-details" target="_blank" rel="noreferrer">
+					<a
+						href={patient.website}
+						className="Card-details Card-ellipsis-text"
+						target="_blank"
+						rel="noreferrer"
+					>
 						{patient.website}
 					</a>
 				</div>
