@@ -1,0 +1,18 @@
+.AddButton {
+  button {
+    width: 100%;
+    max-width: 300px;
+    min-height: 300px;
+    margin: 0;
+    padding: 0;
+    color: #4a4a4a;
+    font-size: 1.3rem;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    cursor: pointer;
+  }
+
+  button:hover {
+    box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+  }
+}

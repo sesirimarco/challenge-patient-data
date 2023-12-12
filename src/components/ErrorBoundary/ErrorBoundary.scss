@@ -1,0 +1,23 @@
+.ErrorBoundary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+  padding: 2rem;
+  color: #d9534f;
+  border: 1px solid #d9534f;
+  border-radius: 1rem;
+
+  button {
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: white;
+    border-color: 1px solid rgb(243 243 243) !important;
+    border-radius: 1rem;
+    cursor: pointer;
+  }
+
+  button:hover {
+    box-shadow: 0 2px 2px rgb(0 0 0 / 10%);
+  }
+}

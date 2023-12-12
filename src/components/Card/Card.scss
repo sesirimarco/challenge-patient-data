@@ -1,0 +1,79 @@
+.Card {
+  width: 300px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+  cursor: pointer;
+
+  p {
+    margin-top: 0;
+  }
+
+  &-header {
+    position: relative;
+
+    &-actions {
+      position: absolute;
+      display: flex;
+      justify-content: end;
+      width: 100%;
+      font-size: 1.8rem;
+      background: rgb(0 0 0 / 50%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &-image {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+  }
+
+  &-content {
+    padding: 1rem;
+    padding-top: 0;
+  }
+
+  &-title {
+    margin-top: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  &-details {
+    display: block;
+    margin-bottom: 4px;
+    color: #777;
+    font-size: 12px;
+  }
+
+  &-description {
+    margin-bottom: 12px;
+    color: #555;
+    font-size: 14px;
+    overflow-wrap: break-word;
+  }
+
+  &-ellipsis-text {
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &-details:hover {
+    color: #3498db;
+  }
+
+  &:hover {
+    .Card-header-actions {
+      opacity: 1;
+    }
+  }
+
+  &-view-icon {
+    margin-top: 2px;
+  }
+}
