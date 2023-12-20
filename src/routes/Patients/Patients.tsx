@@ -37,8 +37,8 @@ const Patients = () => {
 		} else {
 			const newPatient = {
 				...patient,
-				// eslint-disable-next-line @typescript-eslint/no-unsafe-call
-				id: uuidv4() as string,
+				// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment
+				id: uuidv4(),
 				createdAt: new Date().toISOString(),
 			};
 			dispatch(savePatient(newPatient));
