@@ -7,7 +7,7 @@ export const patientsApi = createApi({
 	reducerPath: "patientsApi",
 	baseQuery: fetchBaseQuery({ baseUrl: "https://63bedcf7f5cfc0949b634fc8.mockapi.io" }),
 	endpoints: (builder) => ({
-		getPatients: builder.query<Patient[], string>({
+		getPatients: builder.query<Patient[], void>({
 			query: () => `/users`,
 		}),
 	}),

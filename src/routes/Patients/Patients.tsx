@@ -1,7 +1,9 @@
 import "./Patients.scss";
 
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 
 import AddButton from "../../components/AddButton/AddButton";
 import Card from "../../components/Card/Card";
@@ -11,40 +13,35 @@ import Modal from "../../components/Modal/Modal";
 import PatientForm from "../../components/PatientForm/PatientForm";
 import { Patient } from "../../interfaces/patients";
 import { useGetPatientsQuery } from "../../store/services/patients";
+import { editPatient, savePatient, setAllPatients } from "../../store/slices/patientSlice";
+import { RootState } from "../../store/store";
 
 const Patients = () => {
-	const { data, error, isLoading } = useGetPatientsQuery("");
+	const { data, error, isLoading } = useGetPatientsQuery();
 	const [showModal, setShowModal] = useState<boolean>(false);
 	const [selectedPatient, setSelectedPatient] = useState<Patient | undefined>(undefined);
-	const [currentData, setCurrentData] = useState<Patient[]>([]);
 	const [edit, setEdit] = useState<boolean>(false);
 	const [errorMessage, setErrorMessage] = useState<string | null>(null);
+	const dispatch = useDispatch();
+	const patientData = useSelector((state: RootState) => state.patientData.patients);
 
-	// use current data for editing
-	useEffect(() => {
+	useMemo(() => {
 		if (data?.length) {
-			setCurrentData(data);
+			dispatch(setAllPatients(data));
 		}
-	}, [data]);
+	}, [data, dispatch]);
 
 	const saveData = (patient: Patient) => {
 		if (patient.id.length) {
-			setCurrentData((prevData) =>
-				prevData.map((editedPatient: Patient) => {
-					if (editedPatient.id === patient.id) {
-						return patient;
-					}
-
-					return editedPatient;
-				})
-			);
+			dispatch(editPatient(patient));
 		} else {
 			const newPatient = {
 				...patient,
-				id: (currentData.length + 1).toString(),
+				// eslint-disable-next-line @typescript-eslint/no-unsafe-call
+				id: uuidv4() as string,
 				createdAt: new Date().toISOString(),
 			};
-			setCurrentData((prevCurrentData) => [newPatient, ...prevCurrentData]);
+			dispatch(savePatient(newPatient));
 		}
 	};
 
@@ -102,12 +99,12 @@ const Patients = () => {
 			{errorMessage ? (
 				<ErrorBoundary message={errorMessage} resetError={() => setErrorMessage(null)} />
 			) : null}
-			{currentData.length ? (
+			{patientData.length ? (
 				<div className="Patients-container">
 					<AddButton onClick={() => newPatient()}>
 						<h2>New Patient</h2>
 					</AddButton>
-					{currentData.map((patient: Patient) => (
+					{patientData.map((patient: Patient) => (
 						<div key={patient.id}>
 							<Card
 								onSelect={(data: Patient) => {
